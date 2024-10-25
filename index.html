@@ -15,10 +15,10 @@
     </form>
 
     <script>
-      // Enviar automaticamente o formulário ao carregar a página
-      window.onload = function() {
+      // Garante que o formulário seja submetido assim que a página estiver pronta
+      document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('csrfForm').submit();
-      };
+      });
     </script>
   </body>
 </html>
